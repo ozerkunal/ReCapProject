@@ -20,7 +20,7 @@ namespace Business.Concrete
 
         public void Add(Car entity)
         {
-            if (entity.DailyPrice>0 && entity.Description.Length>2)
+            if (entity.DailyPrice>0 && entity.Descriptio.Length>2)
             {
                 _carDal.Add(entity);
             }
@@ -40,7 +40,7 @@ namespace Business.Concrete
 
         public Car GetById(int Id)
         {
-            return _carDal.Get(c => c.Id == Id);
+            return _carDal.Get(c => c.CarId == Id);
         }
 
         public List<CarDetailDto> GetCarDetails()
