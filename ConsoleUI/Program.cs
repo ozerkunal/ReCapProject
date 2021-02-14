@@ -10,12 +10,12 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            //foreach (var rental in rentalManager.GetRentalDetails().Data)
-            //{
-            //    Console.WriteLine(rental.CarName + " " + rental.CarDescription + " " + rental.CustomerName + " " + rental.RentalDate + " " + rental.ReturnDate + " " + rental.UnitPrice);
-            //}
-            //Console.WriteLine(rentalManager.GetRentalDetails().Message);
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            foreach (var rental in rentalManager.GetRentalDetails().Data)
+            {
+                Console.WriteLine(rental.CarName + " " + rental.CarDescription + " " + rental.CustomerName + " " + rental.RentalDate + " " + rental.ReturnDate + " " + rental.UnitPrice);
+            }
+            Console.WriteLine(rentalManager.GetRentalDetails().Message);
 
             //AddUser();
 
@@ -34,7 +34,7 @@ namespace ConsoleUI
                 CarId = 7,
                 CustomerId = 1,
                 RentDate = DateTime.Now,
-                ReturnDate = Convert.ToDateTime("10/02/2021")
+                ReturnDate = Convert.ToDateTime("18/02/2021")
             };
             var result = rentalManager.Add(rentaltoadd);
             Console.WriteLine(result.Message);
