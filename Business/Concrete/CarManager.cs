@@ -1,9 +1,12 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -20,24 +23,17 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public IResult Add(Car entity)
+        public IResult Add(Car car)
         {
-            if (entity.DailyPrice<=0)
-            {
-                return new ErrorResult(Messages.DailyPriceInvalid);
-            }
-            else if (entity.Description.Length<=2)
-            {
-                return new ErrorResult(Messages.CarNameInvalid);
-            }
-            _carDal.Add(entity);
+            ValidationTool.Validate(new CarValidator(), car);
+            _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
             
         }
 
-        public IResult Delete(Car entity)
+        public IResult Delete(Car car)
         {
-            _carDal.Delete(entity);
+            _carDal.Delete(car);
             return new SuccessResult(Messages.CarDeleted);
         }
 
@@ -67,9 +63,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == Id));
         }
 
-        public IResult Update(Car entity)
+        public IResult Update(Car car)
         {
-            _carDal.Update(entity);
+            _carDal.Update(car);
             return new SuccessResult(Messages.CarUpdated);
         }
     }
