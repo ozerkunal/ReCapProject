@@ -11,8 +11,8 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source = OZERUNALNB\SQLEXPRESS; Initial Catalog = CarRental; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
-            //optionsBuilder.UseSqlServer(@"Data Source = OZERUNAL; Initial Catalog = CarRental; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            //optionsBuilder.UseSqlServer(@"Data Source = OZERUNALNB\SQLEXPRESS; Initial Catalog = CarRental; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            optionsBuilder.UseSqlServer(@"Data Source = OZERUNAL; Initial Catalog = CarRental; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
         }
 
         public DbSet<Car> Cars { get; set; }

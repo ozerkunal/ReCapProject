@@ -51,5 +51,6 @@ namespace Business.Constants
         public static string SuccessfulLogin = "Sisteme Giriş Başarılı";
         public static string UserAlreadyExists = "Kullanıcı Zaten Mevcut";
         public static string AccessTokenCreated = "Access Token Başarıyla Oluşturuldu";
+        public static string CarImageLimitExceeded="Araba Resmi En Fazla 5 Tane Olabilir";
     }
 }
