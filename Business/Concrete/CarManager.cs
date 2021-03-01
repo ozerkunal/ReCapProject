@@ -34,6 +34,7 @@ namespace Business.Concrete
             
         }
 
+        [SecuredOperation("admin")]
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
